@@ -30,10 +30,8 @@
 d-lg-block d-md-block d-sm-block d-xs-block">
     <ul class="navbar-nav">
         <nav class="nav d-flex justify-content-between">
-            <a class="p-2 text-muted" href="#"></a>
             <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
                 <a class="nav-link h5 text-dark" routerLink='/home'>Home</a></li>
-            <a class="p-2 text-muted" href="#"></a>
             <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
                 <a class="nav-link h5 text-dark" *ngIf="rol!='Admin'" routerLink='/reserva'>Reservar Patinete</a>
                 <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/addpatinete'>Añadir Patinete</a>
@@ -43,8 +41,6 @@ d-lg-block d-md-block d-sm-block d-xs-block">
                 <a class="nav-link h5 text-dark" *ngIf="rol!='Admin'" routerLink='/alquiler'>Listar Alquileres</a>
                 <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/alquileradmin'>Listar Alquileres De Usuarios</a>
               </li>
-
-            <a class="p-2 text-muted" href="#"></a>
             <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
                 <a class="nav-link h5 text-dark" routerLink='/listapatinetes'>Ver Flota Disponible</a></li>
             <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
