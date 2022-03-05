@@ -1,0 +1,19 @@
+.activo {
+    background-color: rgb(214, 214, 214);
+    border-radius: 15px;
+}
+
+.activo a {
+    color: green;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: inline-block;
+    margin-right: 20px;
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+}

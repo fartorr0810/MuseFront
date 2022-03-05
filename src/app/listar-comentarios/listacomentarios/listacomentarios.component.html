@@ -1,0 +1,22 @@
+<div class="table-responsive">
+  <!--Indicamos el datatable con las opciones y el disparador-->
+  <table class="table" datatable [dtOptions]="opcionesDataTables" [dtTrigger]="triggerDatatables">
+      <thead>
+          <tr>
+              <th>Email</th>
+              <th>Telefono</th>
+              <th>Contenido del comentario</th>
+          </tr>
+      </thead>
+      <!--Recorremos con un For la respuesta-->
+      <tbody>
+          <tr *ngFor="let comentario of comentarios">
+              <td>{{comentario.email}}</td>
+              <!--Formateamos la fecha-->
+              <td>{{comentario.telefono}}</td>
+              <!--Formateamos los numeros-->
+              <td>{{comentario.contenidocomentario}}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>

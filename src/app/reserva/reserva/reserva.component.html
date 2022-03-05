@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="card card-body">
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <h1>RESERVA TU PATINETE</h1>
+                <!--Declaramos el formulario-->
+                <form class="form-horizontal" [formGroup]="formularioContacto">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="ejemplo_email_3" class="col-lg-5 control-label">Elige tu patinete</label>
+                            <div class="col-lg-5">
+                                <!--Input donde se cargaran los patinetes disponibles-->
+                                <select class="form-control" formControlName="patinete">
+                          <option [value]="patinete.idpatinete" *ngFor="let patinete of listapatinetesDisponibles">
+                            {{patinete.modelo}}</option>
+
+                        </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="ejemplo_email_3" class="col-lg-5 control-label">¿Cuantas horas?</label>
+                            <div class="col-lg-5">
+                                <input type="number" placeholder="Horas del alquiler" formControlName="horasalquiler" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="ejemplo_email_3" class="col-lg-5 control-label">Fecha entrega</label>
+                            <div class="col-lg-5">
+                                <!--Input tipo datetime-local para que pille la hota-->
+                                <input type="datetime-local" placeholder="Hora de inicio del alquiler" min="{{fechaahora}}" formControlName="horaentrega" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="col-lg-5 control-label">Fecha devolucion</label>
+                            <!--Campo que se muestra si le damos a calcular Precio-->
+                            <div class="col-lg-5">
+                                <p class="form-control" *ngIf=" this.horadevolucion!=null ">{{this.horadevolucion | date: "dd-MM-yyyy HH:MM "}}</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row ">
+                        <div class="form-group col-md-6 ">
+                            <div class="col-lg-5 ">
+                                <!--Checkbox para aceptar los terminos-->
+                                <label for="ejemplo_email_3 " class="col-lg-5 control-label ">Codigo de promocion:</label>
+                                <input type="text " placeholder="Codigo de descuento " formControlName="codigo" class="form-control ">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <div class="col-lg-5 ">
+                                <!--Div que se muestra al calcular el precio-->
+                                <label class="col-lg-5 control-label">Precio</label>
+                                <div class="col-lg-5 ">
+
+                                    <p class="form-control" *ngIf="this.precio!=null ">{{this.precio |number}} €</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row ">
+                        <div class="col-sm-offset-5 col-sm-2 text-center ">
+                            <!--Botones que no se podran pulsar hasta que los campos sean validos y llaman al metodo correspondiente.-->
+                            <div class="btn-group " data-toggle="buttons ">
+                                <button (click)="alquilar() " [disabled]="formularioContacto.invalid " type="button " id="btn_enviar " class="btn btn-primary ">Enviar</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-offset-5 col-sm-2 text-center ">
+                            <div class="btn-group " data-toggle="buttons ">
+                                <button (click)="calcularPrecioYFecha() " [disabled]="formularioContacto.invalid " type="button " id="btn_enviar " class="btn btn-primary ">Calcular Precio</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

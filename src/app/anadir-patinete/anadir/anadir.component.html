@@ -1,0 +1,43 @@
+<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body p-5">
+                        <form [formGroup]="formulario" (ngSubmit)="submit()" enctype="multipart/form-data">
+                            <h1>Añadir patinete</h1>
+                            <div class="form-group">
+                                <label>Modelo</label>
+                                <input class="form-control" placeholder="Nombre del modelo de patinete" type="text" class="form-control" formControlName="modelo">
+                                <span class="form-text text-danger" *ngIf="campoEsValido('modelo')">
+        El campo no puede estar vacio
+      </span>
+                            </div>
+                            <div class="form-group">
+                                <label>Precio por hora</label>
+                                <input class="form-control" type="number" placeholder="Precio por hora del patinete" class="form-control" formControlName="precioHora">
+                                <span class="form-text text-danger" *ngIf="campoEsValido('precioHora')">
+          Debe tener un precio
+        </span>
+                            </div>
+                            <div class="form-group">
+                                <label>Velocidad Maxima</label>
+                                <input class="form-control" type="number" placeholder="Velocidad maxima del patinete" class="form-control" formControlName="kmhora">
+                                <span class="form-text text-danger" *ngIf="campoEsValido('kmhora')">
+          Velodidad por hora
+        </span>
+                            </div>
+                            <div class="form-group">
+                                <label for="file">Imagen del patinete</label>
+                                <input formControlName="file" placeholder="Cargue la imagen del patinete" id="file" name="file" type="file" class="form-control" (change)="onFileChange($event)" />
+                                <span class="form-text text-danger" *ngIf="campoEsValido('file')">
+            </span>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body p-5">
+                        <h2 class="text-uppercase text-center mb-5">Entra en tu cuenta</h2>
+                        <div class="container">
+                            <!--Declarramos formulario Template-->
+                            <form (ngSubmit)="login()" autocomplete="off" #formulario="ngForm" class="well form-horizontal">
+                                <div class="form-group">
+                                    <label> Correo electronico: </label>
+                                    <!--Input indicando el campo que va a rellenar-->
+                                    <input type="email" class="form-control" [(ngModel)]="usuario.email" name="email" id="email"  placeholder="email@email.com" required>
+                                    <span class="input-group">
+            </span>
+                                    <span class="form-text text-danger" *ngIf="formulario.controls['email']?.errors && formulario.controls['email']?.touched">
+    Debe introducir un email, Gracias.
+    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label> Contraseña </label>
+                                    <!--Input indicando el campo que va a rellenar-->
+                                    <input type="password" placeholder="Introduzca su contraseña" class="form-control" [(ngModel)]="usuario.password" name="password" id="password" required>
+                                    <span class="form-text text-danger" *ngIf="formulario.controls['password']?.errors && formulario.controls['password']?.touched">
+    Debe introducir una contraseña, Gracias.
+    </span>
+                                </div>
+                                <!--Boton desactivado hasta que no se rellene todos los campos
+                                y sean validos-->
+                                <button type=" submit " class="btn btn-primary float-end " [disabled]="formulario.invalid">
+    Loguear</button>
+                            </form>
+                            <div class="row ">
+                                <div class="col ">
+                                    <div class=" ">
+                                        <!--Te manda al formulario de registrarse-->
+                                        <a class=" " [routerLink]="[ '/register'] ">No tengo cuenta, deseo registrarme</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

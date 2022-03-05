@@ -1,0 +1,98 @@
+<header class="py-1">
+    <div class="row flex-nowrap justify-content-between align-items-center gx-0">
+        <div class="col-2 pt-1">
+            <div class="col-5">
+                <img src="../../../assets/img/logo.png" alt="Imagen con el logo de la empresa" class="img-fluid img-thumbnail d-none d-sm-block" alt="" srcset="">
+            </div>
+        </div>
+        <div class="col-6 text-left" *ngIf="rol!='Admin'">
+            <h2> MUSE</h2>
+            <h6> MUEVETE POR SEVILLA , ALQUILA TU PATINETE</h6>
+        </div>
+        <div class="col-6 text-left" *ngIf="rol=='Admin'">
+            <h2>Panel de Administracion</h2>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="btn btn-sm btn-outline-secondary" (click)="cerrarSesion()">
+                <h5>Cerrar Sesion</h5>
+            </a>
+            <a class="btn btn-sm btn-outline-secondary" [routerLink]="['login']" routerLinkActive="router-link-active">
+                <h5 *ngIf="this.rol=='Admin'">Admin</h5>
+                <h5 *ngIf="this.rol==null">Login</h5>
+                <h5 *ngIf="this.rol=='User'">Usuario</h5>
+
+            </a>
+
+        </div>
+    </div>
+</header>
+<div class="nav-scroller py-1 mb-2 d-none
+d-lg-block d-md-block d-sm-block d-xs-block">
+    <ul class="navbar-nav">
+        <nav class="nav d-flex justify-content-between">
+            <a class="p-2 text-muted" href="#"></a>
+            <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link h5 text-dark" routerLink='/home'>Home</a></li>
+            <a class="p-2 text-muted" href="#"></a>
+            <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link h5 text-dark" *ngIf="rol!='Admin'" routerLink='/reserva'>Reservar Patinete</a>
+                <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/addpatinete'>Añadir Patinete</a>
+            </li>
+            <a class="p-2 text-muted hidden"></a>
+            <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link h5 text-dark" *ngIf="rol!='Admin'" routerLink='/alquiler'>Listar Alquileres</a>
+                <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/alquileradmin'>Listar Alquileres De Usuarios</a>
+              </li>
+
+            <a class="p-2 text-muted" href="#"></a>
+            <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link h5 text-dark" routerLink='/listapatinetes'>Ver Flota Disponible</a></li>
+            <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link h5 text-dark" *ngIf="rol!='Admin'" routerLink='/contacto'>Contacto</a>
+                <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/listarcomentario'>Ver Lista Contactos</a>
+              </li>
+        </nav>
+    </ul>
+    <div class="p-md-2 text-white rounded bg-primary">
+        <div class="col-md-6">
+            <h6 class="font-italic">Hola, estamos a : {{fecha | date: "dd-MM-yyyy" }}, el codigo de descuento de hoy es: PRIMERO
+            </h6>
+        </div>
+    </div>
+</div>
+<div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-light shadow-3 p-4">
+        <button class="btn btn-link btn-block border-bottom m-0">Link 1</button>
+        <button class="btn btn-link btn-block border-bottom m-0">Link 2</button>
+        <button class="btn btn-link btn-block m-0">Link 3</button>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-block
+d-lg-none d-sm-none d-xs-none">
+    <div class="container-fluid">
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <a class="navbar-brand me-auto" href="#"></a>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ms-auto mb-lg-0">
+                <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link h5 text-dark" routerLink='/home'>Home</a></li>
+                <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link h5 text-dark" *ngIf="rol!='Admin'" routerLink='/reserva'>Reservar Patinete</a>
+                    <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/addpatinete'>Añadir Patinete</a>
+                </li>
+                <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
+                  <a class="nav-link h5 text-dark" *ngIf="rol!='Admin'" routerLink='/alquiler'>Listar Alquileres</a>
+                  <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/alquileradmin'>Listar Alquileres De Usuarios</a>
+                  </li>
+                <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link h5 text-dark" routerLink='/listapatinetes'>Ver Flota Disponible</a></li>
+                <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
+                  <a class="nav-link h5 text-dark" *ngIf="rol!='Admin'" routerLink='/contacto'>Contacto</a>
+                  <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/listarcomentario'>Ver Lista Contactos</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</nav>
