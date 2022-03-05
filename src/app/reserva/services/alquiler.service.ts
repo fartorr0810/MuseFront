@@ -33,7 +33,7 @@ export class AlquilerService {
    * @param alquiler con los datos del alquiler
    */
   calcularPrecioYFecha(alquiler:any){
-    let direccionurl="http://localhost:9000/calcular-alquiler";
+    let direccionurl=environment.baseURL+"calcular-alquiler";
     let bodypeticion:AlquilerI={
       horaentrega:alquiler.horaentrega,
       horasalquiler:alquiler.horasalquiler,
@@ -49,7 +49,7 @@ export class AlquilerService {
    * @param idalquiler indicamos la id del alquiler al que pertenece el patiente
    */
   entregarPatinete(idalquiler:number){
-    let direccionurl="http://localhost:9000/alquiler/"+idalquiler;
+    let direccionurl=environment.baseURL+"alquiler/"+idalquiler;
     const httpHeaders=new HttpHeaders().set('Authorization',`Bearer ${localStorage.getItem('token')}`);
     return this.http.put(direccionurl,{ headers: httpHeaders});
 
@@ -59,7 +59,7 @@ export class AlquilerService {
    * @returns devolvemos la lista con todos los patinetes disponibles.
    */
   obtenerPatinetesDisponibles():Observable<Patinete[]>{
-    let direccionurl="http://localhost:9000/patinete?filtro=disponible";
+    let direccionurl=environment.baseURL+"patinete?filtro=disponible";
     const httpHeaders=new HttpHeaders().set('Authorization',`Bearer ${localStorage.getItem('token')}`);
     return this.http.get<Patinete[]>(direccionurl,{ headers: httpHeaders});
   }
@@ -71,7 +71,7 @@ export class AlquilerService {
     const httpHeaders=new HttpHeaders().set('Authorization',`Bearer ${localStorage.getItem('token')}`);
     let idusuario=localStorage.getItem('idusuario')!;
     const httpParams=new HttpParams().set('id',idusuario);
-    let direccionurl="http://localhost:9000/alquiler/"+idusuario;
+    let direccionurl=environment.baseURL+"alquiler/"+idusuario;
     return this.http.get<ListaAlquilerI[]>(direccionurl,{headers:httpHeaders,params:httpParams});
   }
 }
