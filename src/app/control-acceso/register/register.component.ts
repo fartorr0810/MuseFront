@@ -63,7 +63,7 @@ export class RegisterComponent implements OnInit {
     } else if ( errors['pattern'] ) {
       return 'El dato introducido es incorrecto';
     } else if ( errors['emailenuso'] ) {
-      return 'Este email ya está ya fue registrado por otro usuario';
+      return 'Este email ya fue registrado por otro usuario';
     }
     return '';
   }
