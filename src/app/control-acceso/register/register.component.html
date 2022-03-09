@@ -27,7 +27,9 @@
                                     <label class="form-label">Email</label>
                                     <!--Input con el campo al que va a rellenar,-->
                                     <input type="email" placeholder="email@email.com" formControlName="email" class="form-control form-control-lg" required/>
-                                    <span *ngIf="campoEsValido('email')" class="form-text text-danger">Debe introducir un email válido</span>
+                                    <span class="form-text text-danger" *ngIf="campoEsValido('email')">
+                                  {{ mensajesErrores }}
+                                </span>
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label">Contraseña</label>
