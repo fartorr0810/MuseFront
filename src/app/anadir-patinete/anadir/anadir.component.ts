@@ -67,7 +67,7 @@ export class AnadirComponent implements OnInit {
     formData.append('file', this.formulario.get('fileSource')!.value);
     this.serviciofichero.subirFichero(formData, patin).subscribe(resp=>{
       Swal.fire({
-        title: 'Patinete añadido con exito',
+        title: 'Patinete añadido con éxito',
         icon: 'success',
         confirmButtonText: 'Ok'
       })

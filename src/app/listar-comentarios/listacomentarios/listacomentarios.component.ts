@@ -25,18 +25,21 @@ export class ListacomentariosComponent implements OnInit {
     this.obtenerComentarios();
     this.opcionesDataTables={
       pagingType:'full_numbers',
-      pageLength:10
+      pageLength:10,
+      language:{
+        url:"http://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"
+      }
     }
   }
   /**
    * Metodo donde llamamos al metodo del servicio para obtener los patinetes y nos subscribimos a ella
-   * 
+   *
    */
   obtenerComentarios(){
     this.servicioComentario.obtenerComentarios().subscribe(({
       next:(resp)=> {
         this.comentarios=resp;
-        this.triggerDatatables.next(resp);
+        this.triggerDatatables.next(null);
       }
     }))
     }

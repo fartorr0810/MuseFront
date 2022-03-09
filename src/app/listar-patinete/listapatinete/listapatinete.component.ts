@@ -41,7 +41,7 @@ export class ListapatineteComponent implements OnInit {
         encontrado=true;
         Swal.fire({
           title: element.modelo,
-          text: 'Esta disponible',
+          text: 'Está disponible',
           icon: 'success',
           confirmButtonText: 'Ok'
         });
@@ -50,7 +50,7 @@ export class ListapatineteComponent implements OnInit {
     if (encontrado==false){
       Swal.fire({
         title: 'Lo sentimos',
-        text: 'No esta disponible',
+        text: 'No está disponible',
         icon: 'error',
         confirmButtonText: 'Ok'
       });

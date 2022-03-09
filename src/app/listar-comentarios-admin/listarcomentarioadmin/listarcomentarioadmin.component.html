@@ -1,33 +1,33 @@
 <div class="table-responsive">
-  <!--Indicamos el datatable con las opciones y el disparador-->
-  <table class="table" datatable [dtOptions]="opcionesDataTables" [dtTrigger]="triggerDatatables">
-      <thead>
-          <tr>
-              <th>ID Alquiler</th>
-              <th>Fecha Entrega</th>
-              <th>Horas Alquiler</th>
-              <th>Fecha Devolucion</th>
-              <th>Modelo Patinete</th>
-              <th>Precio Total</th>
-              <th>Entregado</th>
-          </tr>
-      </thead>
-      <!--Recorremos con un For la respuesta-->
-      <tbody>
-          <tr *ngFor="let alquiler of listadealquileres">
-              <td>{{alquiler.idalquiler}}</td>
-              <!--Formateamos la fecha-->
-              <td>{{alquiler.horaentrega | date: "dd-MM-yyyy HH:MM"}}</td>
-              <!--Formateamos los numeros-->
-              <td>{{alquiler.horasalquiler | number }}</td>
-              <td>{{alquiler.horarecogida | date: "dd-MM-yyyy HH:MM"}}</td>
-              <td>{{alquiler.modelo}}</td>
-              <td>{{alquiler.preciototal}} €</td>
-              <td>
-                <button class="btn btn-success" *ngIf="alquiler.entregado==true">Entregado</button>
-                <button class="btn btn-danger" *ngIf="alquiler.entregado==false">No Entregado</button>
-              </td>
-          </tr>
-      </tbody>
-  </table>
+    <!--Indicamos el datatable con las opciones y el disparador-->
+    <table class="table" datatable [dtOptions]="opcionesDataTables" [dtTrigger]="triggerDatatables">
+        <thead>
+            <tr>
+                <th>ID Alquiler</th>
+                <th>Fecha Entrega</th>
+                <th>Horas Alquiler</th>
+                <th>Fecha Devolución</th>
+                <th>Modelo Patinete</th>
+                <th>Precio Total</th>
+                <th>Entregado</th>
+            </tr>
+        </thead>
+        <!--Recorremos con un For la respuesta-->
+        <tbody>
+            <tr *ngFor="let alquiler of listadealquileres">
+                <td>{{alquiler.idalquiler}}</td>
+                <!--Formateamos la fecha-->
+                <td>{{alquiler.horaentrega | date: "dd-MM-yyyy HH:MM"}}</td>
+                <!--Formateamos los numeros-->
+                <td>{{alquiler.horasalquiler | number }}</td>
+                <td>{{alquiler.horarecogida | date: "dd-MM-yyyy HH:MM"}}</td>
+                <td>{{alquiler.modelo}}</td>
+                <td>{{alquiler.preciototal}} €</td>
+                <td>
+                    <button class="btn btn-success" *ngIf="alquiler.entregado==true">Entregado</button>
+                    <button class="btn btn-danger" *ngIf="alquiler.entregado==false">No Entregado</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

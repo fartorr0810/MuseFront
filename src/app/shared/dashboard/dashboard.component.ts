@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit {
 
     }else{
       Swal.fire({
-        title: 'No hay ninguna sesion activa',
+        title: 'No hay ninguna sesión activa',
         icon: 'info',
         confirmButtonText: 'Ok'
       });

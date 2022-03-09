@@ -10,11 +10,11 @@
             <h6> MUEVETE POR SEVILLA , ALQUILA TU PATINETE</h6>
         </div>
         <div class="col-6 text-left" *ngIf="rol=='Admin'">
-            <h2>Panel de Administracion</h2>
+            <h2>Panel de Administración</h2>
         </div>
         <div class="col-4 d-flex justify-content-end align-items-center">
             <a class="btn btn-sm btn-outline-secondary" (click)="cerrarSesion()">
-                <h5>Cerrar Sesion</h5>
+                <h5>Cerrar Sesión</h5>
             </a>
             <a class="btn btn-sm btn-outline-secondary" [routerLink]="['login']" routerLinkActive="router-link-active">
                 <h5 *ngIf="this.rol=='Admin'">Admin</h5>
@@ -40,7 +40,7 @@ d-lg-block d-md-block d-sm-block d-xs-block">
             <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
                 <a class="nav-link h5 text-dark" *ngIf="rol!='Admin'" routerLink='/alquiler'>Listar Alquileres</a>
                 <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/alquileradmin'>Listar Alquileres De Usuarios</a>
-              </li>
+            </li>
             <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
                 <a class="nav-link h5 text-dark" routerLink='/listapatinetes'>Ver Flota Disponible</a></li>
             <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
@@ -48,21 +48,21 @@ d-lg-block d-md-block d-sm-block d-xs-block">
                 <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/listarcomentario'>Ver Lista Contactos</a>
             </li>
             <li>
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   Accesibilidad      </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" (click)="changeFont('+')" id="font-up">Aumentar texto</a></li>
-                    <li><a class="dropdown-item" (click)="changeFont('-')" id="font-down">Dismunir texto</a></li>
-                  </ul>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" (click)="changeFont('+')" id="font-up">Aumentar texto</a></li>
+                        <li><a class="dropdown-item" (click)="changeFont('-')" id="font-down">Dismunir texto</a></li>
+                    </ul>
                 </div>
-              </li>
+            </li>
         </nav>
     </ul>
 
     <div class="p-md-2 text-white rounded bg-primary">
         <div class="col-md-6">
-            <h6 class="font-italic">Hola, estamos a : {{fecha | date: "dd-MM-yyyy" }}, el codigo de descuento de hoy es: PRIMERO
+            <h6 class="font-italic">Hola, estamos a : {{fecha | date: "dd-MM-yyyy" }}, el código de descuento de hoy es: PRIMERO
             </h6>
         </div>
     </div>
@@ -89,14 +89,14 @@ d-lg-none d-sm-none d-xs-none">
                     <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/addpatinete'>Añadir Patinete</a>
                 </li>
                 <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
-                  <a class="nav-link h5 text-dark" *ngIf="rol!='Admin'" routerLink='/alquiler'>Listar Alquileres</a>
-                  <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/alquileradmin'>Listar Alquileres De Usuarios</a>
-                  </li>
+                    <a class="nav-link h5 text-dark" *ngIf="rol!='Admin'" routerLink='/alquiler'>Listar Alquileres</a>
+                    <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/alquileradmin'>Listar Alquileres De Usuarios</a>
+                </li>
                 <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
                     <a class="nav-link h5 text-dark" routerLink='/listapatinetes'>Ver Flota Disponible</a></li>
                 <li class="p-2 nav-item active" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
-                  <a class="nav-link h5 text-dark" *ngIf="rol!='Admin'" routerLink='/contacto'>Contacto</a>
-                  <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/listarcomentario'>Ver Lista Contactos</a>
+                    <a class="nav-link h5 text-dark" *ngIf="rol!='Admin'" routerLink='/contacto'>Contacto</a>
+                    <a class="nav-link h5 text-dark" *ngIf="rol=='Admin'" routerLink='/listarcomentario'>Ver Lista Contactos</a>
                 </li>
             </ul>
         </div>

@@ -52,7 +52,7 @@ export class ContactoComponent implements OnInit {
         next:(resp=>{
           Swal.fire({
             title: 'Gracias',
-            text: 'Comentario enviado con exito',
+            text: 'Comentario enviado con éxito',
             icon: 'success',
             confirmButtonText: 'Ok'
           });

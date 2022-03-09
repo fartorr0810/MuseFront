@@ -1,18 +1,18 @@
 <div class="container">
     <div class="search-results">
         <div class="row pt-5">
-          <div class="col-9">
-          </div>
-          <div class="col-2">
-            <app-buscador (busqueda)="buscarPatinete($event)"></app-buscador>
-          </div>
+            <div class="col-9">
+            </div>
+            <div class="col-2">
+                <app-buscador (busqueda)="buscarPatinete($event)"></app-buscador>
+            </div>
             <!--Recorremos la lista de patinetes mostrando un card de cada uno-->
             <div class="col-md-4 p-2" *ngFor="let patinete of listapatinetes">
                 <div class="card shadow car">
                     <div class="card">
                         <div class="card-body mx-auto">
                             <h5 class="card-title text-center">{{patinete.modelo}}</h5>
-                            <p class="card-text text-center">Velocidad maxima: {{patinete.kmhora}} km/h</p>
+                            <p class="card-text text-center">Velocidad máxima: {{patinete.kmhora}} km/h</p>
                             <p class="card-text text-center"> El precio por hora es de: {{patinete.precioHora}} €</p>
                             <img *ngIf="patinete.imagenregenerada!='data:image/png;base64,null'" src="{{patinete.imagenregenerada}}" class="img-responsive col-12" style="margin: auto;
                             width: 26;
