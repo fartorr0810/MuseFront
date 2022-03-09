@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ControlAccesoService } from '../services/control-acceso.service';
+import { EmailvalidatorService } from '../services/emailvalidator.service';
 
 @Component({
   selector: 'app-register',
@@ -16,9 +17,11 @@ import { ControlAccesoService } from '../services/control-acceso.service';
 export class RegisterComponent implements OnInit {
   //Formulario
   formulario!:FormGroup;
+  patronEmail: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
   //Constructor donde inyectamos el formbuilder y el authservice
   constructor(private formBuilder: FormBuilder,private authservice: ControlAccesoService,
-    private router:Router) { }
+    private router:Router,
+    private validatorService:EmailvalidatorService) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -28,9 +31,7 @@ export class RegisterComponent implements OnInit {
     this.formulario=this.formBuilder.group({
       name:['',[Validators.required,Validators.minLength(4)]],
       username:['',[Validators.required,Validators.minLength(4),Validators.pattern("^[a-z0-9_-]{8,15}$")]],
-      email:['',[Validators.required,Validators.email],
-      // [this.comprobarEmail]
-    ],
+      email:['',[Validators.required,Validators.email,Validators.pattern( this.patronEmail ) ], [ this.validatorService ]],
       password:['',[Validators.required,Validators.minLength(8)]]
     })
   }
@@ -55,7 +56,17 @@ export class RegisterComponent implements OnInit {
       x.type = "password";
     }
   }
-
+  get mensajesErrores() {
+    const errors = this.formulario.get('email')?.errors!;
+    if ( errors['required'] ) {
+      return 'El campo email es obligatorio';
+    } else if ( errors['pattern'] ) {
+      return 'El dato introducido es incorrecto';
+    } else if ( errors['emailenuso'] ) {
+      return 'Este email ya está ya fue registrado por otro usuario';
+    }
+    return '';
+  }
 
   /**
    *Metodo para registrar un usuario, mete en una variable los datos del formulario.
@@ -81,8 +92,9 @@ export class RegisterComponent implements OnInit {
           });
         }),
         error:resp=>{
+          console.log(resp);
           Swal.fire({
-            title: 'Lo sentimos',
+            title: resp.error.mensaje,
             text: 'Email repetido',
             icon: 'error',
             confirmButtonText: 'Ok'

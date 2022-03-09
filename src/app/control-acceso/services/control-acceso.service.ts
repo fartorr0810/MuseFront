@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthResponse } from '../interfaces/auth-response.interface';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,7 @@ export class ControlAccesoService {
  */
   login(email:string,password:string){
     let direccionurl=environment.baseURL+"auth/login";
+    console.log(environment.baseURL);
 
     let bodypeticion={
       'email':email,
